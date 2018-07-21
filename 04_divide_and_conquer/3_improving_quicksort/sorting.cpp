@@ -23,7 +23,7 @@ int partition2(vector<int> &a, int l, int r) {
 
 pair<int,int> partition3(vector<int> &a, int l, int r) {
 	int x = a[l];
-	int begin = l + 1;
+	int begin = l;
 	int end = l;
 
 	for (int i = l + 1; i != r + 1; ++i)
@@ -34,13 +34,13 @@ pair<int,int> partition3(vector<int> &a, int l, int r) {
 			std::swap(a[i], a[end]);
 			if (a[end] < x)
 			{
-				std::swap(a[begin], a[end]);
 				++begin;
+				std::swap(a[begin], a[end]);
 			}
 		}
 	}
 
-	std::swap(a[l], a[begin-1]);
+	std::swap(a[l], a[begin]);
 
 	return { begin, end };
 }
